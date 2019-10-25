@@ -6,7 +6,15 @@ The following is a set of guidelines for contributing to Outpost. These are most
 
 ## Table of Contents
 
-[TOC]
+   * [Contributing to Outpost](#contributing-to-outpost)
+      * [Table of Contents](#table-of-contents)
+         * [Code of Conduct](#code-of-conduct)
+         * [Questions and Issues?](#questions-and-issues)
+      * [Getting Started](#getting-started)
+         * [Adding a Feature](#adding-a-feature)
+         * [Fixing a Bug](#fixing-a-bug)
+         * [Cosmetic Changes](#cosmetic-changes)
+      * [Attributions](#attributions)
 
 ### Code of Conduct
 
