@@ -24,6 +24,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 var indexRouter = require('./routes/index');
 var testRouter = require('./routes/testAPI');
+var messageRouter = require('./routes/messagesRoutes');
 var usersRouter = require('./routes/users');
 
 const port = process.env.PORT || 4000;
@@ -82,9 +83,6 @@ app.post('/addmessage', (req, res) => {
   })
  });
 
- app.get('/messages', (req, res) => {
-  db.collection('messages').next(function(err, doc)
-{
 
  app.post('/api/user/signup', (req, res) => {
   const user = new User({
@@ -97,6 +95,18 @@ app.post('/addmessage', (req, res) => {
     res.status(200).send(response)
   })
  });
+
+ app.route('/messages').get(function(req, res){
+    Message.find(function(err, messages){
+      if (err){
+        console.log('error ', err.res);
+      }
+      else {
+        console.log(messages);
+        res.json(messages);
+      }
+    })
+ })
 /*app.post('/addmessage', (req, res) => {
   var myData = new message(req.body);
   myData.save()
@@ -124,8 +134,5 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-io.on('connection', function(socket){
-  console.log('a user connected');
-});
 
 module.exports = app;
