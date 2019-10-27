@@ -14,9 +14,8 @@ class TextSend extends React.Component{
   }
   buttonPress(e) {
     this.setState({value: e.target.value})
-    this.setState({[e.target.value]: ''})
+    this.myinput.value = "";
     console.log(this.state.value);
-    
   }
   handleChange = (e) => {
     this.setState({value: e.target.value});
@@ -27,8 +26,8 @@ class TextSend extends React.Component{
   render() {
       return (
         <div className="form-inline" id = "textBar">
-            <textarea className="form-control"  onChange={this.handleChange.bind(this)} id="sendTextArea" placeholder="Aa" rows = '1' />
-            <Button variant = "link" onClick={this.buttonPress.bind(this)} id = "button"><img src={"/send-arrow.png"} id = "sendArrowImage"></img> </Button> 
+            <textarea className="form-control"  onChange={(e) => {this.handleChange(e)}} id="sendTextArea" placeholder="Aa" rows = '1' ref={(input)=> this.myinput = input}/>
+            <Button variant = "link" onClick={this.buttonPress.bind(this)} id = "button" ><img src={"/send-arrow.png"} id = "sendArrowImage"></img> </Button> 
         </div>
       )
   }

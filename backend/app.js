@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var cors = require('cors');
+var app = express();
 
 var bodyParser = require('body-parser');
 
@@ -13,9 +14,8 @@ var indexRouter = require('./routes/index');
 var testRouter = require('./routes/testAPI');
 var usersRouter = require('./routes/users');
 
-
 var mongoose = require("mongoose")
-const MONGOURL = "mongodb+srv://brilam8:nE2Ndd75jT677suG@database-bycsc.mongodb.net/test?retryWrites=true&w=majority"
+const MONGOURL = "mongodb+srv://brilam8:<password>@database-bycsc.mongodb.net/test?retryWrites=true&w=majority"
 mongoose.connect(MONGOURL)
 .then(()=>console.log("DB CONNECTED"))
 .catch(error => console.log(error))
@@ -23,7 +23,7 @@ mongoose.connect(MONGOURL)
 app.use(bodyParser.json());
 
 
-var app = express();
+
 var nameSchema = new mongoose.Schema({
   firstName: String,
   lastNameName: String
