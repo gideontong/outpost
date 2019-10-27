@@ -18,17 +18,26 @@ const int output26 = 26;
 const int output27 = 27;
 
 void printOLED(String string) {
-    Heltec.display -> clear();
+  Serial.println("Got here!");
+    char char_array[string.length() + 1];
+    strcpy(char_array, string.c_str());
+    Heltec.display->clear();
     // Print to the screen
-    Heltec.display -> println(string);
+    Heltec.display->println("test");
     // Draw it to the internal screen buffer
-    Heltec.display -> drawLogBuffer(0, 0);
+    Heltec.display->drawLogBuffer(0, 0);
     // Display it on the screen
-    Heltec.display -> display();
+    Heltec.display->display();
 }
 
 void setup() {
-    Serial.begin(115200);
+    
+    Heltec.begin(true /*DisplayEnable Enable*/, false /*LoRa Disable*/, true /*Serial Enable*/);
+    Heltec.display->setContrast(255);
+
+    pinMode(25, OUTPUT);
+  digitalWrite(25,HIGH);
+
     // Initialize the output variables as outputs
     pinMode(output26, OUTPUT);
     pinMode(output27, OUTPUT);
