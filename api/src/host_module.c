@@ -33,7 +33,7 @@ void progressDraw() {
 // Draws the status screen
 void viewStatus() {
     Heltec.display -> clear();
-    Heltec.display -> drawProgressBar(0, 32, 120, 10, 100);
+    Heltec.display -> drawProgressBar(0, 32, 120, 10, progress);
     Heltec.display -> setTextAlignment(TEXT_ALIGN_CENTER);
     Heltec.display -> drawString(64, 5, "Outpost is online!");
     Heltec.display -> drawString(64, 15, "Broadcasted: " + String(counter));
