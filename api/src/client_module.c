@@ -26,7 +26,7 @@ void progressDraw() {
     Heltec.display -> clear();
     Heltec.display -> drawProgressBar(0, 32, 120, 10, progress);
     Heltec.display -> setTextAlignment(TEXT_ALIGN_CENTER);
-    Heltec.display -> drawString(64, 15, "Setup: " + String(progress) + "%");
+    Heltec.display -> drawString(64, 15, "Booting Outpost: " + String(progress) + "%");
     Heltec.display -> display();
 }
 
@@ -59,4 +59,33 @@ void setup() {
 
 void loop() {
     WiFiClient client = server.available();
+
+    if(client) {
+        Serial.println("New device connected!");
+        String currentLine = "";
+        while(client.connected()) {
+            if(client.available()) {
+                char c = client.read();
+                Serial.write(c);
+                header += c;
+                if(c == '\n') {
+                    if(currentLine.length == 0) {
+                        client.println("HTTP/1.1 200 OK");
+                        client.println("Content-type:text/html");
+                        client.println("Connection: close");
+                        client.println();
+                        client.println();
+                        break;
+                    } else {
+                        currentLine = "";
+                    }
+                } else if(c != '\r') {
+                    currentLine += c;
+                }
+            }
+        }
+        header = "";
+        client.stop();
+        Serial.println("Client disconnected.");
+    }
 }
