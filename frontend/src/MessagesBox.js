@@ -1,14 +1,24 @@
 import React, { Fragment , Component} from "react";
-import Pusher from 'pusher-js';
-const API_URL = 'http://localhost:9000/addmessage';
-
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ListGroup from 'react-bootstrap/ListGroup'
+const API_URL = 'http://localhost:4000/addmessage';
+
+
 function sayHello() {
   console.log('Hello!');
 }
 class MessagesBox extends React.Component{
+  constructor(props) {
+    super(props);
+    this.state = {messages:[]};
+  }
+
+  componentDidMount() {
+    fetch('/messages')
+      .then(res => res.json())
+      .then(quotes => this.setState({ quotes }));
+  }
   
   render() {
     

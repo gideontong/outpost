@@ -5,6 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var cors = require('cors');
 const app = express();
+
 var http = require('http').createServer(app);
 var io = require('socket.io')(http);
 const Pusher = require('pusher');
@@ -16,7 +17,6 @@ const pusher = new Pusher({
   cluster    : 'us3',
   encrypted  : true,
 });
-const channel = 'tasks';
 
 var bodyParser = require('body-parser');
 
@@ -33,13 +33,9 @@ const MONGOURL = "mongodb+srv://brilam8:KEgj1NNeaSkRiwd2@database-bycsc.mongodb.
 mongoose.connect(MONGOURL, {useNewUrlParser: true})
 .then(()=>console.log("DB CONNECTED"))
 .catch(error => console.log(error))
-
-const db= mongoose.connection;
+const db = mongoose.connection;
 
 db.once('open', () => {
-  app.listen(port, () => {
-    console.log('Node server running on port 4000');
-  });
 
   const messageCollection = db.collection('messages');
   const changeStream = messageCollection.watch();
@@ -48,21 +44,10 @@ db.once('open', () => {
     console.log(change);    
     if(change.operationType === 'insert') {
       const message = change.fullDocument;
-      pusher.trigger(
-        channel,
-        'inserted', 
-        {
-          id: message._id,
-          message: message.desc,
-          name: message.name
-        }
-      ); 
+      console.log(JSON.stringify(message));
     }
   });
 });
-
-
-
 
  const { Message } = require('./models/Messages')
 const {User} = require('./models/User')
@@ -96,6 +81,10 @@ app.post('/addmessage', (req, res) => {
     res.status(200).send(response)
   })
  });
+
+ app.get('/messages', (req, res) => {
+  db.collection('messages').next(function(err, doc)
+{
 
  app.post('/api/user/signup', (req, res) => {
   const user = new User({
