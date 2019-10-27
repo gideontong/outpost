@@ -41,7 +41,7 @@ void viewStatus() {
     Heltec.display -> setTextAlignment(TEXT_ALIGN_CENTER);
     Heltec.display -> drawString(64, 5, "Outpost is online!");
     Heltec.display -> drawString(64, 15, "Connected: " + String(clients) + "/" + String(MAX_CLIENTS));
-    Heltec.display -> drawString(64, 35, "Signal strength: " + signal);
+    Heltec.display -> drawString(64, 42, "Signal strength: " + signal);
     Heltec.display -> display();
 }
 
@@ -56,7 +56,7 @@ void updateStatus(int packetSize) {
 
 // Main Program
 void setup() {
-    Heltec.begin(true /* Display */, true /* LoRa */, true /* Serial */);
+    Heltec.begin(true /* Display */, true /* LoRa */, true /* Serial */, true, BAND);
     Heltec.display -> setContrast(255);
     Heltec.display -> clear();
     progressDraw();
