@@ -4,7 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var cors = require('cors');
-var app = express();
+const app = express();
 
 var bodyParser = require('body-parser');
 
@@ -14,22 +14,22 @@ var indexRouter = require('./routes/index');
 var testRouter = require('./routes/testAPI');
 var usersRouter = require('./routes/users');
 
+const port = process.env.PORT || 4000;
 var mongoose = require("mongoose")
-const MONGOURL = "mongodb+srv://brilam8:<password>@database-bycsc.mongodb.net/test?retryWrites=true&w=majority"
-mongoose.connect(MONGOURL)
+const MONGOURL = "mongodb+srv://brilam8:KEgj1NNeaSkRiwd2@database-bycsc.mongodb.net/test?retryWrites=true&w=majority"
+mongoose.connect(MONGOURL, {useNewUrlParser: true})
 .then(()=>console.log("DB CONNECTED"))
 .catch(error => console.log(error))
 
-app.use(bodyParser.json());
 
 
 
-var nameSchema = new mongoose.Schema({
-  firstName: String,
-  lastNameName: String
- });
- var message = mongoose.model("Message", nameSchema);
 
+
+ const { Message } = require('./models/Messages')
+const {User} = require('./models/User')
+
+ app.use(bodyParser.json());  
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -45,11 +45,32 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/testAPI', testRouter)
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+/*app.use(function(req, res, next) {
   next(createError(404));
-});
+});*/
 
-app.post("/addmessage", (req, res) => {
+app.post('/addmessage', (req, res) => {
+  var myData = new Message({
+    desc: req.body.message,
+    name: req.body.name
+  }).save((err,response)=>{
+    if(err) res.status(400).send(err)
+    res.status(200).send(response)
+  })
+ });
+
+ app.post('/api/user/signup', (req, res) => {
+  const user = new User({
+
+    email: req.body.email,
+    password: req.body.password
+
+  }).save((err,response)=>{
+    if(err) res.status(400).send(err)
+    res.status(200).send(response)
+  })
+ });
+/*app.post('/addmessage', (req, res) => {
   var myData = new message(req.body);
   myData.save()
   .then(item => {
@@ -58,9 +79,16 @@ app.post("/addmessage", (req, res) => {
   .catch(err => {
   res.status(400).send("unable to save to database");
   });
- });
+ });*/
  
+ app.listen(port, () =>{
+   console.log(`server running on ${port}`);
+ });
 // error handler
+app.post('/', function(req, res) {
+  // do something w/ req.body or req.files 
+  console.log(req.body)
+});
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;

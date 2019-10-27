@@ -4,13 +4,15 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 //schema
-var Messages = new Schema({
+var messageSchema = Schema({
   desc: {
     type: String
   },
+  name:{
+    type:String
+  }
 
-},{
-    collection: 'Tasks'
+
 });
-
-module.exports = mongoose.model('Messages', Messages);
+const Message = mongoose.model('Message', messageSchema)
+module.exports = {Message};

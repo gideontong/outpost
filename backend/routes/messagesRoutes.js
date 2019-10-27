@@ -25,7 +25,7 @@ router.route('/').get(function (req, res) {
 });
 
 // Add item
-router.route('/add').post(function (req, res) {
+router.route('/addmessage').post(function (req, res) {
   var item = new Messages(req.body);
       item.save()
     .then(item => {
