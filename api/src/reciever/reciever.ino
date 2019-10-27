@@ -41,7 +41,7 @@ void viewStatus() {
     Heltec.display -> setTextAlignment(TEXT_ALIGN_CENTER);
     Heltec.display -> drawString(64, 5, "Outpost is online!");
     Heltec.display -> drawString(64, 15, "Connected: " + String(clients) + "/" + String(MAX_CLIENTS));
-    Heltec.display -> drawString(64, 44, "Signal strength: .il" + signal);
+    Heltec.display -> drawString(64, 45, "Signal strength: " + signal);
     Heltec.display -> display();
 }
 
