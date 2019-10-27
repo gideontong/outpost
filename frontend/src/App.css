@@ -6,6 +6,57 @@
   height: 40vmin;
 }
 
+Form {
+  background: gray;
+  padding: 1.5em;
+  border-radius: 1em;
+  
+}
+#button{
+  width: 5%;
+}
+#sendArrowImage{
+  height: 3.3vh;
+  display:flex;
+  align-items: left;
+  justify-content: left;
+}
+
+#textMessagingArea{
+  width: 75vw;
+  height: 60vh;
+  padding-bottom: 3px
+}
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  height:100vh;
+}
+
+#textBar{
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#sendTextArea {
+  resize: none;
+  width:95%;
+
+}
+#textInput{
+  margin:auto;
+}
+
+.center {
+  display: flex;
+  justify-content: 'center';
+  align-items: 'center';
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
