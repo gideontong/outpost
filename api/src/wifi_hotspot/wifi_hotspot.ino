@@ -1,17 +1,4 @@
-/*
- *
- * Outpost - Setup Code
- * ====================
- * 
- * Intended for the ESP32 with HelTec V2 LoRa and OLED
- * 
- * Parts of this code were adapted from:
- * Random Nerd Tutorials
- * 
- */
-
-#include "Arduino.h"
-#include "WiFi.h"
+#include <WiFi.h>
 #include "heltec.h"
 
 const char* ssid = "OutpostDev";
