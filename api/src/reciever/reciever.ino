@@ -113,7 +113,8 @@ void loop() {
                         client.println();
                         client.println("<!DOCTYPE html><html>");
                         client.println("<head><title>Outpost</title></head>");
-                        client.println("<body><h1>Outpost</h1></body>");
+                        client.println("<body><h1>Outpost</h1>");
+                        client.println("<h2>" + String(LoRa.read())) + "</h2></body>");
                         client.println("</html>");
                         client.println();
                         break;
