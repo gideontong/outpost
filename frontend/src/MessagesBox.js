@@ -2,6 +2,8 @@ import React, { Fragment , Component} from "react";
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ListGroup from 'react-bootstrap/ListGroup'
+import axios from 'axios';
+
 const API_URL = 'http://localhost:4000/addmessage';
 
 
@@ -15,9 +17,9 @@ class MessagesBox extends React.Component{
   }
 
   componentDidMount() {
-    fetch('/messages')
-      .then(res => res.json())
-      .then(quotes => this.setState({ quotes }));
+    axios.get('/messages')
+    .then(messages => console.log(messages))
+    .catch(e => console.log(e))
   }
   
   render() {

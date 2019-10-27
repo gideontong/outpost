@@ -17,7 +17,7 @@ class TextSend extends React.Component{
     this.setState({value: e.target.value})
     if (this.state.value != undefined) {
       const obj = {message: this.state.value,
-      name: "bob ross"};
+      name: "Brian"};
       console.log('POST SENT');
       axios.post('http://localhost:9000/addmessage', obj)
         .then(res => console.log(res.data));
