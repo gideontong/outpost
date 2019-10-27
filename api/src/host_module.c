@@ -53,6 +53,11 @@ void setup() {
 }
 
 void loop() {
+    if(progress == 0) {
+        progress = 100;
+    } else {
+        progress = 0;
+    }
     viewStatus();
     
     // Send packets
