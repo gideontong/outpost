@@ -94,6 +94,10 @@ void loop() {
     int packetSize = LoRa.parsePacket();
     if (packetSize) {
         updateStatus(packetSize);
+        packet = "";
+        for (int i = 0; i < packetSize; i++) {
+            packet += (char) LoRa.read();
+        }
     }
 
     // Webserver code
@@ -114,7 +118,7 @@ void loop() {
                         client.println("<!DOCTYPE html><html>");
                         client.println("<head><title>Outpost</title></head>");
                         client.println("<body><h1>Outpost</h1>");
-                        client.println("<h2>" + String(LoRa.read())) + "</h2></body>");
+                        client.println("<h2>" + packet + "</h2></body>");
                         client.println("</html>");
                         client.println();
                         break;
