@@ -14,6 +14,9 @@
 #include "WiFi.h"
 #include "heltec.h"
 
+// Definitions
+
+#define     BAND   915E6 // Set to 915MHz IHS
 const char* ssid = "OutpostDev";
 const char* psk  = "test1234";
 
