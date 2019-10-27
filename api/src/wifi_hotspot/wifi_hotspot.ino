@@ -18,23 +18,19 @@ const int output26 = 26;
 const int output27 = 27;
 
 void printOLED(String string) {
-  Serial.println("Got here!");
-    char char_array[string.length() + 1];
-    strcpy(char_array, string.c_str());
-    // Draw it to the internal screen buffer
-    Heltec.display->drawString(0, 0, char_array);
+    char char_array[string.length() + 12];
+    strcpy(char_array, "Host Addr: ");
+    strcat(char_array, string.c_str());
+    // Print to the screen
+    Heltec.display -> drawString(0, 0, char_array);
     // Display it on the screen
-    Heltec.display->display();
-    Serial.print("Got here2!");
+    Heltec.display -> display();
 }
 
 void setup() {
-    
     Heltec.begin(true /*DisplayEnable Enable*/, false /*LoRa Disable*/, true /*Serial Enable*/);
-    Heltec.display->setContrast(255);
-
-    pinMode(25, OUTPUT);
-  digitalWrite(25,HIGH);
+    Heltec.display -> setContrast(255);
+    Heltec.display -> clear();
 
     // Initialize the output variables as outputs
     pinMode(output26, OUTPUT);
@@ -51,11 +47,9 @@ void setup() {
     IPAddress IP = WiFi.softAPIP();
     Serial.print("AP IP address: ");
     Serial.println(IP);
-    Heltec.display-> clear();
 
     // Display the IP on the OLED
     printOLED(IP.toString());
-    Serial.print("Got here3!");
 
     server.begin();
 }
