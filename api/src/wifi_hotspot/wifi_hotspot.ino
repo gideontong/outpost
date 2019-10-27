@@ -21,13 +21,11 @@ void printOLED(String string) {
   Serial.println("Got here!");
     char char_array[string.length() + 1];
     strcpy(char_array, string.c_str());
-    Heltec.display->clear();
-    // Print to the screen
-    Heltec.display->println("test");
     // Draw it to the internal screen buffer
-    Heltec.display->drawLogBuffer(0, 0);
+    Heltec.display->drawString(0, 0, char_array);
     // Display it on the screen
     Heltec.display->display();
+    Serial.print("Got here2!");
 }
 
 void setup() {
@@ -53,9 +51,11 @@ void setup() {
     IPAddress IP = WiFi.softAPIP();
     Serial.print("AP IP address: ");
     Serial.println(IP);
+    Heltec.display-> clear();
 
     // Display the IP on the OLED
     printOLED(IP.toString());
+    Serial.print("Got here3!");
 
     server.begin();
 }
