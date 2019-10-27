@@ -5,6 +5,18 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var cors = require('cors');
 const app = express();
+var http = require('http').createServer(app);
+var io = require('socket.io')(http);
+const Pusher = require('pusher');
+
+const pusher = new Pusher({
+  appId      : '888334',
+  key        : '21fcddbf691f11275f03',
+  secret     : 'fe94be9809a2d14eedd4',
+  cluster    : 'us3',
+  encrypted  : true,
+});
+const channel = 'tasks';
 
 var bodyParser = require('body-parser');
 
@@ -17,11 +29,37 @@ var usersRouter = require('./routes/users');
 const port = process.env.PORT || 4000;
 var mongoose = require("mongoose")
 const MONGOURL = "mongodb+srv://brilam8:KEgj1NNeaSkRiwd2@database-bycsc.mongodb.net/test?retryWrites=true&w=majority"
+
 mongoose.connect(MONGOURL, {useNewUrlParser: true})
 .then(()=>console.log("DB CONNECTED"))
 .catch(error => console.log(error))
 
+const db= mongoose.connection;
 
+db.once('open', () => {
+  app.listen(port, () => {
+    console.log('Node server running on port 4000');
+  });
+
+  const messageCollection = db.collection('messages');
+  const changeStream = messageCollection.watch();
+
+  changeStream.on('change', (change) => {
+    console.log(change);    
+    if(change.operationType === 'insert') {
+      const message = change.fullDocument;
+      pusher.trigger(
+        channel,
+        'inserted', 
+        {
+          id: message._id,
+          message: message.desc,
+          name: message.name
+        }
+      ); 
+    }
+  });
+});
 
 
 
@@ -81,9 +119,7 @@ app.post('/addmessage', (req, res) => {
   });
  });*/
  
- app.listen(port, () =>{
-   console.log(`server running on ${port}`);
- });
+
 // error handler
 app.post('/', function(req, res) {
   // do something w/ req.body or req.files 
@@ -97,6 +133,10 @@ app.use(function(err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render('error');
+});
+
+io.on('connection', function(socket){
+  console.log('a user connected');
 });
 
 module.exports = app;

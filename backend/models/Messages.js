@@ -9,7 +9,8 @@ var messageSchema = Schema({
     type: String
   },
   name:{
-    type:String
+    type:String,
+    required: false
   }
 
 

@@ -1,4 +1,6 @@
 import React, { Fragment , Component} from "react";
+import Pusher from 'pusher-js';
+const API_URL = 'http://localhost:9000/addmessage';
 
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -7,9 +9,12 @@ function sayHello() {
   console.log('Hello!');
 }
 class MessagesBox extends React.Component{
-
+  
   render() {
+    
       return (
+        
+
         <ListGroup >
                 <ListGroup.Item>Brian: Spaghetti</ListGroup.Item>
                 <ListGroup.Item>Max: Putin Putout</ListGroup.Item>

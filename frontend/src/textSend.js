@@ -3,6 +3,7 @@ import React, { Fragment , Component} from "react";
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
+import axios from 'axios';
 
 class TextSend extends React.Component{
   
@@ -14,6 +15,13 @@ class TextSend extends React.Component{
   }
   buttonPress(e) {
     this.setState({value: e.target.value})
+    if (this.state.value != undefined) {
+      const obj = {message: this.state.value,
+      name: "bob ross"};
+      console.log('POST SENT');
+      axios.post('http://localhost:4000/addmessage', obj)
+        .then(res => console.log(res.data));
+    }
     this.myinput.value = "";
     console.log(this.state.value);
   }
