@@ -41,10 +41,10 @@ function App() {
 
   return (
     
-    <div class="row"> 
+    <div className="row"> 
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css"/>
       <div className="center">
-          <Form id = "textMessagingArea">
+          <Form id = "textMessagingArea" method = "post" action = "/addmessage">
               <MessagesBox/>
               
                 <TextSend/>

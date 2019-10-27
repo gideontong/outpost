@@ -5,11 +5,30 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var cors = require('cors');
 
+var bodyParser = require('body-parser');
+
+app.use(bodyParser.urlencoded({ extended: true }));
+
 var indexRouter = require('./routes/index');
 var testRouter = require('./routes/testAPI');
 var usersRouter = require('./routes/users');
 
+
+var mongoose = require("mongoose")
+const MONGOURL = "mongodb+srv://brilam8:nE2Ndd75jT677suG@database-bycsc.mongodb.net/test?retryWrites=true&w=majority"
+mongoose.connect(MONGOURL)
+.then(()=>console.log("DB CONNECTED"))
+.catch(error => console.log(error))
+
+app.use(bodyParser.json());
+
+
 var app = express();
+var nameSchema = new mongoose.Schema({
+  firstName: String,
+  lastNameName: String
+ });
+ var message = mongoose.model("Message", nameSchema);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -30,6 +49,17 @@ app.use(function(req, res, next) {
   next(createError(404));
 });
 
+app.post("/addmessage", (req, res) => {
+  var myData = new message(req.body);
+  myData.save()
+  .then(item => {
+  res.send("item saved to database");
+  })
+  .catch(err => {
+  res.status(400).send("unable to save to database");
+  });
+ });
+ 
 // error handler
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
