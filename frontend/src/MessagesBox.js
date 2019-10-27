@@ -21,7 +21,6 @@ class MessagesBox extends React.Component{
           
        console.log(this.state.messages[0]);
   };
-
   
   render() {
     
@@ -39,6 +38,5 @@ class MessagesBox extends React.Component{
   }
 
 }
-
 
 export default MessagesBox;

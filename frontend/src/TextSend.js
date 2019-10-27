@@ -4,7 +4,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
-
+import updoot from './MessagesBox'
 class TextSend extends React.Component{
   
   constructor(props) {
@@ -21,7 +21,6 @@ class TextSend extends React.Component{
       console.log('POST SENT');
       axios.post('http://localhost:9000/addmessage', obj)
         .then(res => console.log(res.data));
-      
     }
     this.myinput.value = "";
     console.log(this.state.value);
