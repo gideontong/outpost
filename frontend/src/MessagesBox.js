@@ -1,26 +1,27 @@
-import React, { Fragment , Component} from "react";
+import React from "react";
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ListGroup from 'react-bootstrap/ListGroup'
 import axios from 'axios';
 
-const API_URL = 'http://localhost:4000/addmessage';
-
-
-function sayHello() {
-  console.log('Hello!');
-}
 class MessagesBox extends React.Component{
   constructor(props) {
     super(props);
     this.state = {messages:[]};
   }
 
-  componentDidMount() {
-    axios.get('/messages')
-    .then(messages => console.log(messages))
-    .catch(e => console.log(e))
-  }
+  componentDidMount = async () => {
+    console.log("RAN");
+    let res = await axios.get('http://localhost:9000/messages');
+    let data = res.data;
+    const messages = data.map(obj => ({ 
+      message: obj.desc,
+      name: obj.name}))
+      this.setState({ messages });
+          
+       console.log(this.state.messages[0]);
+  };
+
   
   render() {
     
@@ -28,16 +29,16 @@ class MessagesBox extends React.Component{
         
 
         <ListGroup >
-                <ListGroup.Item>Brian: Spaghetti</ListGroup.Item>
-                <ListGroup.Item>Max: Putin Putout</ListGroup.Item>
-                <ListGroup.Item>Shan: I missed my math midterm</ListGroup.Item>
-                <ListGroup.Item>Vincent: welcome to the farmer's market</ListGroup.Item>
-                <ListGroup.Item>Gideon: lol c++ embedded libraries</ListGroup.Item>
-                
+                {this.state.messages[this.state.messages.length-5] !== undefined ? (<ListGroup.Item> {this.state.messages[this.state.messages.length-5].name +': '+this.state.messages[this.state.messages.length-5].message}</ListGroup.Item>) : console.log(":(")}
+                {this.state.messages[this.state.messages.length-4] !== undefined ? (<ListGroup.Item> {this.state.messages[this.state.messages.length-4].name +': '+this.state.messages[this.state.messages.length-4].message}</ListGroup.Item>) : console.log(":(")}
+                {this.state.messages[this.state.messages.length-3] !== undefined ? (<ListGroup.Item> {this.state.messages[this.state.messages.length-3].name +': '+this.state.messages[this.state.messages.length-3].message}</ListGroup.Item>) : console.log(":(")}
+                {this.state.messages[this.state.messages.length-2] !== undefined ? (<ListGroup.Item> {this.state.messages[this.state.messages.length-2].name +': '+this.state.messages[this.state.messages.length-2].message}</ListGroup.Item>) : console.log(":(")}
+                {this.state.messages[this.state.messages.length-1] !== undefined ? (<ListGroup.Item> {this.state.messages[this.state.messages.length-1].name +': '+this.state.messages[this.state.messages.length-1].message}</ListGroup.Item>) : console.log(":(")}
               </ListGroup>
       )
   }
 
 }
+
 
 export default MessagesBox;
