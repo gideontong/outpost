@@ -1,4 +1,4 @@
-#Outpost Journal: SDHacks 2019
+# Outpost Journal: SDHacks 2019
 
 SDHacks 2019 served as a perfect opportunity for us to work on Outpost and get some portions functional. We worked for approximately 16 hours throughout SDHacks on specific portions of the project that we thought were most important to finish first. 
 
