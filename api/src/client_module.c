@@ -151,15 +151,7 @@ void loop() {
     WiFiClient client = server.available();
     viewStatus();
 
-    // LoRa recieving code
-    int packetSize = LoRa.parsePacket();
-    if (packetSize) {
-        updateStatus(packetSize);
-        packet = "";
-        for (int i = 0; i < packetSize; i++) {
-            packet += (char) LoRa.read();
-        }
-    }
+    recievePacket();
 
     // Webserver code
     if(client) {
