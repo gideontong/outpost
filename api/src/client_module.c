@@ -90,6 +90,16 @@ void updateStatus(int packetSize) {
     signal = String(LoRa.packetRssi(), DEC);
 }
 
+/*
+ * 
+ * Function: recievePacket()
+ * 
+ * The function checks if any new packets have been recieved, and if so, updates the latest packet
+ * variable with the latest information. This is stored in the global variable packet of type
+ * String for other functions to use or parse (for example, if binary data or JSON data is being
+ * sent over the connection).
+ * 
+ */
 void recievePacket() {
     int packetSize = LoRa.parsePacket();
     if (packetSize) {
