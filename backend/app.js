@@ -24,7 +24,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 var indexRouter = require('./routes/index');
 var testRouter = require('./routes/testAPI');
-var messageRouter = require('./routes/messagesRoutes');
 var usersRouter = require('./routes/users');
 
 const port = process.env.PORT || 4000;
