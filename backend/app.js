@@ -73,7 +73,7 @@ app.use('/testAPI', testRouter)
   next(createError(404));
 });*/
 
-app.post('/addmessage', (req, res) => {
+app.post('/api/messages/addmessage', (req, res) => {
   var myData = new Message({
     desc: req.body.message,
     name: req.body.name
@@ -96,7 +96,7 @@ app.post('/addmessage', (req, res) => {
   })
  });
 
- app.route('/messages').get(function(req, res){
+ app.route('/api/messages/getMessages').get(function(req, res){
     Message.find(function(err, messages){
       if (err){
         console.log('error ', err.res);
@@ -124,6 +124,7 @@ app.post('/', function(req, res) {
   // do something w/ req.body or req.files 
   console.log(req.body)
 });
+
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;

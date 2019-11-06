@@ -18,7 +18,7 @@ class TextSend extends React.Component{
       const obj = {message: this.state.value,
       name: "Brian"};
       console.log('POST SENT');
-      axios.post('http://localhost:9000/addmessage', obj)
+      axios.post('http://localhost:9000/api/messages/addmessage', obj)
         .then(res => console.log(res.data));
         
     }
