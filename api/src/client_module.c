@@ -36,8 +36,15 @@ String      packet;                     // Empty packet string
 String      signal      = "--";         // RSSI signal strength represented as a decimal string
 WiFiServer  server(80);                 // Set webserver to port 80
 
-// Functions
-// Draws the progress bar
+/*
+ * 
+ * Function: progressDraw()
+ * 
+ * This function takes no arguments and redraws the progress bar on the screen using the current
+ * value of progress, which is a value between 0 and 100. This corresponds to the percentage of
+ * the progress bar that has been completed.
+ * 
+ */
 void progressDraw() {
     Heltec.display -> clear();
     Heltec.display -> drawProgressBar(0, 32, 120, 10, progress);
@@ -46,7 +53,15 @@ void progressDraw() {
     Heltec.display -> display();
 }
 
-// Draws the status screen
+/*
+ * 
+ * Function: viewStatus()
+ * 
+ * Draws the status of the device on the OLED. Currently detects the number of clients connected
+ * to the WiFi network as well as the signal strength to the host device (no authentication is
+ * currently supported, unfortunately).
+ * 
+ */
 void viewStatus() {
     int clients = WiFi.softAPgetStationNum();
     Heltec.display -> clear();
@@ -58,7 +73,15 @@ void viewStatus() {
     Heltec.display -> display();
 }
 
-// Updates status
+/*
+ * 
+ * Function: updateStatus(int)
+ * 
+ * This function has one parameter packetSize of type int. It is not a necessary function to
+ * call as the purpose is to update the global variable with the current signal strength as
+ * recieved by the latest packet from the host device.
+ * 
+ */
 void updateStatus(int packetSize) {
     packet = "";
     for(int i = 0; i < packetSize; i++) {
