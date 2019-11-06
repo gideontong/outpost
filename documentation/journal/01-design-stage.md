@@ -1,6 +1,6 @@
 # Outpost Journal: Design Stage
 
-This project was originally spawned as an Institute of Electrical and Electronics Engineers (IEEE), UC San Diego (UCSD) branch quarterly project (QP++). Although the original members were Gideon Tong, Brian Lam, <redacted>, and Jay Sun, <redacted> eventually left to go work for another project instead, leaving us with only Gideon Tong, Brian Lam, and Jay Sun.
+This project was originally spawned as an Institute of Electrical and Electronics Engineers (IEEE), UC San Diego (UCSD) branch quarterly project (QP++). Although the original members were Gideon Tong, Brian Lam, `<redacted>`, and Jay Sun, `<redacted>` eventually left to go work for another project instead, leaving us with only Gideon Tong, Brian Lam, and Jay Sun.
 
 ## Table of Contents
 
