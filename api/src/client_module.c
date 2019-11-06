@@ -4,9 +4,9 @@
  * | Outpost Client Module |
  * +-----------------------+
  * 
- * Created for use with the Outpost workspace client and long range Internet of Things data
- * transfer. This is the code for use on ESP32 and ESP-IF devices that are to be used only as
- * clients and not hosts.
+ * Created for use with the Outpost workspace client and long range Internet of
+ * Things data transfer. This is the code for use on ESP32 and ESP-IF devices
+ * that are to be used only as clients and not hosts.
  * 
  * Created on 27 October 2019
  * By Gideon Tong
@@ -16,7 +16,8 @@
  * 
  * There are no other editors to this document.
  * 
- * See the full tutorial at: https://www.github.com/gideontong/outpost. Wiki to come soon.
+ * See the full tutorial at: https://www.github.com/gideontong/outpost. Wiki to
+ * come soon.
  * 
  */
 
@@ -40,9 +41,10 @@ WiFiServer  server(80);                 // Set webserver to port 80
  * 
  * Function: progressDraw()
  * 
- * This function takes no arguments and redraws the progress bar on the screen using the current
- * value of progress, which is a value between 0 and 100. This corresponds to the percentage of
- * the progress bar that has been completed.
+ * This function takes no arguments and redraws the progress bar on the screen
+ * using the current value of progress, which is a value between 0 and 100.
+ * This corresponds to the percentage of the progress bar that has been
+ * completed.
  * 
  */
 void progressDraw() {
@@ -57,9 +59,9 @@ void progressDraw() {
  * 
  * Function: viewStatus()
  * 
- * Draws the status of the device on the OLED. Currently detects the number of clients connected
- * to the WiFi network as well as the signal strength to the host device (no authentication is
- * currently supported, unfortunately).
+ * Draws the status of the device on the OLED. Currently detects the number of
+ * clients connected to the WiFi network as well as the signal strength to the
+ * host device (no authentication is currently supported, unfortunately).
  * 
  */
 void viewStatus() {
@@ -77,9 +79,10 @@ void viewStatus() {
  * 
  * Function: updateStatus(int)
  * 
- * This function has one parameter packetSize of type int. It is not a necessary function to
- * call as the purpose is to update the global variable with the current signal strength as
- * recieved by the latest packet from the host device.
+ * This function has one parameter packetSize of type int. It is not a
+ * necessary function to call as the purpose is to update the global variable
+ * with the current signal strength as recieved by the latest packet from the
+ * host device.
  * 
  */
 void updateStatus(int packetSize) {
@@ -94,10 +97,11 @@ void updateStatus(int packetSize) {
  * 
  * Function: recievePacket()
  * 
- * The function checks if any new packets have been recieved, and if so, updates the latest packet
- * variable with the latest information. This is stored in the global variable packet of type
- * String for other functions to use or parse (for example, if binary data or JSON data is being
- * sent over the connection).
+ * The function checks if any new packets have been recieved, and if so,
+ * updates the latest packet variable with the latest information. This is
+ * stored in the global variable packet of type String for other functions to
+ * use or parse (for example, if binary data or JSON data is being sent over
+ * the connection).
  * 
  */
 void recievePacket() {
