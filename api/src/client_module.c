@@ -1,9 +1,22 @@
 /*
  *
- * Outpost Client Module
- * =====================
+ * +-----------------------+
+ * | Outpost Client Module |
+ * +-----------------------+
  * 
- * Created by Gideon Tong
+ * Created for use with the Outpost workspace client and long range Internet of Things data
+ * transfer. This is the code for use on ESP32 and ESP-IF devices that are to be used only as
+ * clients and not hosts.
+ * 
+ * Created on 27 October 2019
+ * By Gideon Tong
+ * 
+ * Last updated on 5 November 2019
+ * By Gideon Tong
+ * 
+ * There are no other editors to this document.
+ * 
+ * See the full tutorial at: https://www.github.com/gideontong/outpost. Wiki to come soon.
  * 
  */
 
@@ -12,7 +25,7 @@
 #include "WiFi.h"
 #include "heltec.h"
 
-// Definitions
+// Variables and definitions
 #define     BAND        915E6           // Set to 915MHz IHS
 #define     MAX_CLIENTS 4               // Maximum number of WiFi clients
 const char* ssid        = "OutpostDev"; // WiFi name
