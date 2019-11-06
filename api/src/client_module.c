@@ -90,6 +90,17 @@ void updateStatus(int packetSize) {
     signal = String(LoRa.packetRssi(), DEC);
 }
 
+void recievePacket() {
+    int packetSize = LoRa.parsePacket();
+    if (packetSize) {
+        updateStatus(packetSize);
+        packet = "";
+        for (int i = 0; i < packetSize; i++) {
+            packet += (char) LoRa.read();
+        }
+    }
+}
+
 // Main Program
 void setup() {
     Heltec.begin(true /* Display */, true /* LoRa */, true /* Serial */, true, BAND);
