@@ -12,7 +12,7 @@ class MessagesBox extends React.Component{
 
   componentDidMount = async () => {
     console.log("RAN");
-    let res = await axios.get('http://localhost:9000/messages');
+    let res = await axios.get('http://localhost:9000/api/messages/getMessages');
     let data = res.data;
     const messages = data.map(obj => ({ 
       message: obj.desc,
@@ -21,7 +21,6 @@ class MessagesBox extends React.Component{
           
        console.log(this.state.messages[0]);
   };
-
   
   render() {
     
@@ -39,6 +38,5 @@ class MessagesBox extends React.Component{
   }
 
 }
-
 
 export default MessagesBox;
