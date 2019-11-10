@@ -2,6 +2,7 @@ import React from "react";
 
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Navbar from 'react-bootstrap/Navbar'
 import Form from 'react-bootstrap/Form'
 
 
@@ -32,15 +33,29 @@ import Form from 'react-bootstrap/Form'
   }
 }*/
 
-import TextSend from './TextSend'
-import MessagesBox from './MessagesBox'
+import TextSend from './components/TextSend'
+import MessagesBox from './components/MessagesBox'
 function App() {  
 
   
 
   return (
+    <>
+      <Navbar bg="dark" variant="dark">
+        <Navbar.Brand href="#home">
+          <img
+            alt=""
+            src="/placeholder_white.png"
+            width="30"
+            height="30"
+            className="d-inline-block align-top"
+          />
+          {' React Bootstrap'}
+        </Navbar.Brand>
+      </Navbar>
+    </>
     
-    <div className="row"> 
+    /*<div className="row"> 
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css"/>
       <div className="center">
           <Form id = "textMessagingArea" method = "post" action = "/addmessage">
@@ -50,7 +65,7 @@ function App() {
               
           </Form>
       </div>
-  </div>
+  </div>*/
   );
 }
 
