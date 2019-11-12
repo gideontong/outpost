@@ -14,6 +14,7 @@ SDHacks 2019 served as a perfect opportunity for us to work on Outpost and get s
 
 * Gideon worked on getting the hardware and related API's function.
 * Brian worked on a prototype of the text messaging system for the web application.
+* Performed our initial tests of Outpost.
 
 #### Journal
 Gideon worked on getting the API's for the hardware-based receivers and transmitters working and was able to get the transmitter to send packets to the receiver - as well as getting a basic UI running on the LoRa screens that displayed basic data (like signal strength and packets received). On the other side, Brian worked on the front-end and back-end of a basic web application for Outpost - prototyping a text messaging system that stores all messages in a mongoDB database.
