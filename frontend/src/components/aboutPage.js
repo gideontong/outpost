@@ -19,15 +19,15 @@ import 'bootstrap/dist/css/bootstrap.min.css';
   }
 
 }*/
-function homePage(props){
+function aboutPage(props){
   return (
     <div>
 
-      <h1>Welcome to Outpost</h1>
+      <h1>Welcome to Outpost heres some info about it!</h1>
     </div>
 
     
   )
 }
 
-export default homePage;
+export default aboutPage;

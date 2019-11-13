@@ -7,6 +7,7 @@ import { Route } from 'react-router';
 import App from './App';
 import homePage from './components/homePage';
 import textingSystem from './components/textInterface';
+import aboutPage from './components/aboutPage'
 //import SomeOtherPage from './components/SomeOtherPage';
 
 /**
@@ -14,8 +15,9 @@ import textingSystem from './components/textInterface';
  * Don't forget to import the components above after adding new route.
  */
 export default (
-  <Route path="/" component={App}>
-    <Route path = "/home" component={homePage} />
+  <Route>
+    <Route path = "/home" component = {homePage}/>
+    <Route path = "/about" component={aboutPage} />
     <Route path="/texting" component={textingSystem} />
   </Route>
 );
