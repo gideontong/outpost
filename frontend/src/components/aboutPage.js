@@ -23,7 +23,7 @@ function aboutPage(props){
   return (
     <div>
 
-      <h1>Welcome to Outpost heres some info about it!</h1>
+      <h1 >About Outpost:</h1>
     </div>
 
     

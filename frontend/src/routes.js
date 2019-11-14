@@ -18,6 +18,6 @@ export default (
   <Route>
     <Route path = "/home" component = {homePage}/>
     <Route path = "/about" component={aboutPage} />
-    <Route path="/texting" component={textingSystem} />
+    <Route path="/comm/texting" component={textingSystem} />
   </Route>
 );
