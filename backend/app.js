@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var cors = require('cors');
+const config = require("./config.json")
 const app = express();
 
 var http = require('http').createServer(app);
@@ -28,7 +29,7 @@ var usersRouter = require('./routes/users');
 
 const port = process.env.PORT || 4000;
 var mongoose = require("mongoose")
-const MONGOURL = "mongodb+srv://brilam8:KEgj1NNeaSkRiwd2@database-bycsc.mongodb.net/test?retryWrites=true&w=majority"
+const MONGOURL = "mongodb+srv://"+config.dev.mongoDB+"@database-bycsc.mongodb.net/test?retryWrites=true&w=majority"
 
 mongoose.connect(MONGOURL, {useNewUrlParser: true})
 .then(()=>console.log("DB CONNECTED"))

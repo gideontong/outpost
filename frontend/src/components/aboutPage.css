@@ -1,0 +1,19 @@
+
+#thumbnailImg{
+  display:flex;
+  align-items: middle;
+  justify-content: middle;
+}
+.row{
+  display:flex;
+  justify-content: center;
+  align-items:center;
+}
+.col{
+  justify-content: center;
+  align-items:center;
+}
+.image{
+  width: 50%;
+  align-content: center;
+}
