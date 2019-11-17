@@ -10,6 +10,7 @@
 
 backend/node_modules
 backend/.pnp
+backend/config.json
 backend/.pnp.js
 backend/coverage
 backend/build
