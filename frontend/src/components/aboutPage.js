@@ -25,20 +25,37 @@ import Image from 'react-bootstrap/Image'
 }*/
 function aboutPage(props){
   return (
-    <div class = "text-center">
+    <div >
 
-      <h1>About Outpost: </h1>
+      <h1 class = "text-center">About Outpost: </h1>
       <Jumbotron fluid>
-        <Container >
-          <h1 class = "pb-4">The Developers, Designers, and Builders</h1>
+        <Container>
+          <h1 class = "pb-4 text-center">The Developers, Designers, and Builders</h1>
           <Row>
             <Col>
-              <Image className = "image" src = "/placeholder_white.png" rounded/>
-              <h3 class = "pt-2">Gideon Tong</h3>
+              <div class = "text-center">
+                <Image className = "image" src = "/placeholder_white.png" rounded/>
+                <h3 class = "pt-2">Gideon Tong</h3>
+                <p class = "pt-2">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+              </div>
             </Col>
-            <Col >
-              <Image className = "image" src = "/placeholder_white.png" rounded/>
-              <h3 class = "pt-2">Brian Lam</h3>
+            <Col>
+              <div class = "text-center">
+                <Image className = "image" src = "/placeholder_white.png" rounded/>
+                <h3 class = "pt-2">Brian Lam</h3>
+                <p class = "pt-2">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+              </div>
+                <div class = "text-left">
+                  <Image className = "icons" class = "inline"src = "/github_icon.png" rounded/>
+                  <p className = "linkText">
+                    <a href="https://github.com/Brooseidon">@Brooseidon</a>
+                  </p>
+                  
+                  <Image className = "icons" src = "/linkedin_icon.png" rounded/>
+                  <p className = "linkText">
+                    <a href="https://www.linkedin.com/in/brian-lam-2955b5165/">@Brian Lam</a>
+                  </p>
+                </div>
             </Col>
           </Row>
         </Container>

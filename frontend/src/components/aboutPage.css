@@ -17,3 +17,16 @@
   width: 50%;
   align-content: center;
 }
+
+.icons{
+  width: 4%;
+  display:flex;
+}
+
+#linkRow {
+  height: 5%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap
+}
