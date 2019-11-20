@@ -23,7 +23,7 @@ function homePage(props){
   return (
     <div>
 
-      <h1>Welcome to Outpost</h1>
+      <h1>Welcome to Outpost</h1> 
     </div>
 
     
