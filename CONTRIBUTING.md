@@ -42,6 +42,6 @@ Cosmetic changes to the code will be accepted! Feel free to submit a pull reques
 
 ## Attributions
 
-This guide was lifted, in part, from the [Atom style guide](https://github.com/atom/atom/blob/master/CONTRIBUTING.md). The major contributor to this repository is Gideon Tong, whom you can email at gideon@gideontong.com if you would like to ask any questions!
+This guide was lifted, in part, from the [Atom style guide](https://github.com/atom/atom/blob/master/CONTRIBUTING.md). The major contributor to this repository is [Gideon Tong](https://www.github.com/gideontong), whom you can email at the email listed in his profile if you would like to ask any questions!
 
 Outpost is a group effort. We thank you for your contributions!
