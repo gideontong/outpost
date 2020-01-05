@@ -10,33 +10,36 @@ Form {
   background: gray;
   padding: 1.5em;
   border-radius: 1em;
-  
+
 }
-#button{
+
+#button {
   width: 5%;
 }
-#sendArrowImage{
+
+#sendArrowImage {
   height: 3.3vh;
-  display:flex;
+  display: flex;
   align-items: left;
   justify-content: left;
 }
 
-#textMessagingArea{
+#textMessagingArea {
   width: 75vw;
   height: 60vh;
   padding-bottom: 3px
 }
+
 .center {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-left: auto;
   margin-right: auto;
-  height:100vh;
+  height: 100vh;
 }
 
-#textBar{
+#textBar {
   width: 100%;
   margin-left: auto;
   margin-right: auto;
@@ -44,11 +47,12 @@ Form {
 
 #sendTextArea {
   resize: none;
-  width:95%;
+  width: 95%;
 
 }
-#textInput{
-  margin:auto;
+
+#textInput {
+  margin: auto;
 }
 
 .center {
