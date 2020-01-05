@@ -1,29 +1,31 @@
-
-#thumbnailImg{
-  display:flex;
+#thumbnailImg {
+  display: flex;
   align-items: middle;
   justify-content: middle;
 }
-.row{
-  display:flex;
+
+.row {
+  display: flex;
   justify-content: center;
-  align-items:center;
+  align-items: center;
 }
-.col{
+
+.col {
   justify-content: center;
-  align-items:center;
+  align-items: center;
 }
-.image{
+
+.image {
   width: 50%;
   align-content: center;
 }
 
-.icons{
+.icons {
   height: 42px;
   width: 42px;
 }
 
-.icons2{
+.icons2 {
   height: 44px;
   width: 44px;
 }
