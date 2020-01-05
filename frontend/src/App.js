@@ -1,60 +1,25 @@
-import React, {Component} from "react";
+import React from "react";
 
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from 'react-bootstrap/Navbar'
-import Form from 'react-bootstrap/Form'
 import NavDropdown from 'react-bootstrap/NavDropdown'
-import Button from 'react-bootstrap/Button'
 import Nav from 'react-bootstrap/Nav'
 
-
-
-/*class App extends Component{
-  constructor(props) {
-      super(props);
-      this.state = { apiResponse: "" };
-  }
-  callAPI() {
-    fetch("http://localhost:9000/testAPI")
-    .then(res => res.text())
-    .then(res => this.setState({apiResponse: res}))
-    .catch(err => err);
-  }
-
-  componentDidMount(){
-    this.callAPI();
-  }
-
-  render() {
-    return (
-      <div className = "App">
-        <header className = "App-header">
-          <p className = "App-intro">{this.state.apiResponse}</p>
-        </header>
-      </div>
-    )
-  }
-}*/
-
-
-function App() {  
-
-  
-
+function App() {
   return (
     <>
       <Navbar bg="dark" variant="dark">
         <Navbar.Brand href="#home">
           <img
-            alt=""
+            alt="Placeholder"
             src="/placeholder_white.png"
             width="30"
             height="30"
             className="d-inline-block align-top"
-            hspace = "10"
+            hspace="10"
           />
-          {' Outpost'}
+          {'Outpost'}
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
@@ -73,18 +38,6 @@ function App() {
         </Navbar.Collapse>
       </Navbar>
     </>
-
-    /*<div className="row"> 
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css"/>
-      <div className="center">
-          <Form id = "textMessagingArea" method = "post" action = "/addmessage">
-              <MessagesBox/>
-              
-                <TextSend/>
-              
-          </Form>
-      </div>
-  </div>*/
   );
 }
 

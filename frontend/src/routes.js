@@ -4,11 +4,9 @@ import { Route } from 'react-router';
 /**
  * Import all page components here
  */
-import App from './App';
 import homePage from './components/homePage';
 import textingSystem from './components/textInterface';
 import aboutPage from './components/aboutPage'
-//import SomeOtherPage from './components/SomeOtherPage';
 
 /**
  * All routes go here.

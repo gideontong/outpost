@@ -1,10 +1,9 @@
 import React from 'react';
-import { Router , Route, Switch} from 'react-router';
+import { Switch } from 'react-router';
 import {HashRouter} from 'react-router-dom'
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import { createBrowserHistory } from 'history'
 
 import * as serviceWorker from './serviceWorker';
 import routes from './routes';
